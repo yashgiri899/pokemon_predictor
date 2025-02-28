@@ -3,7 +3,14 @@ import pandas as pd
 
 # Load the dataset (assumes it's saved as 'pokemon_data.csv')
 # For deployment, place the CSV in the same directory as this script
-df = pd.read_csv(r"C:\Users\msi 1\Downloads\pokemon_data_pokeapi.csv")
+import os
+
+# Load CSV from the current directory (compatible with Streamlit Cloud)
+import os
+
+csv_path = os.path.join(os.path.dirname(__file__), 'pokemon_data_pokeapi.csv')
+df = pd.read_csv(csv_path)
+
 
 # Define Pokémon type effectiveness chart
 type_effectiveness = {
